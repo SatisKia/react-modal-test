@@ -16,6 +16,8 @@
 #modal {
   z-index: 2;
   width: 50%;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
   padding: 1em;
   text-align: center;
   background: #ffffff;
