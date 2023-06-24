@@ -1,5 +1,5 @@
 #overlay {
-  /* ‰æ–Ê‘S‘Ì‚ğ•¢‚¤ */
+  /* ç”»é¢å…¨ä½“ã‚’è¦†ã† */
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   height: 100%;
   background-color: rgba(0,0,0,0.5);
 
-  /* ‰æ–Ê‚Ì’†‰›‚É—v‘f‚ğ•\¦‚³‚¹‚é */
+  /* ç”»é¢ã®ä¸­å¤®ã«è¦ç´ ã‚’è¡¨ç¤ºã•ã›ã‚‹ */
   display: flex;
   align-items: center;
   justify-content: center;
