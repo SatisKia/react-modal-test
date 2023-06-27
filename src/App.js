@@ -1,29 +1,47 @@
 import './App.css';
-import { useState } from 'react';
 import Modal from './component/Modal';
+import React from 'react';
 
-function MyTestModal({ modalShowFlag, setModalShowFlag }) {
-  const content = (
-    <div><b>てすと</b><br/><br/>てすとてすと</div>
-  );
-  const params = {
-    content: content,
-    closeLabel: "閉じる",
-    backdropClickToClose: true
-  };
-  return (
-    <Modal modalShowFlag={modalShowFlag} setModalShowFlag={setModalShowFlag} params={params} />
-  );
+class MyTestModal extends Modal {
+  constructor(props) {
+    super(props);
+
+    const content = (
+      <div><b>てすと</b><br/><br/>てすとてすと</div>
+    );
+    const params = {
+      content: content,
+      closeLabel: "閉じる",
+      backdropClickToClose: true
+    };
+    this.setParams(params);
+  }
 }
 
-function App() {
-  const [ modalShowFlag, setModalShowFlag ] = useState(false);
-  return (
-    <div className="App">
-      <button onClick={() => setModalShowFlag(true)}>モーダルを表示</button>
-      <MyTestModal modalShowFlag={modalShowFlag} setModalShowFlag={setModalShowFlag} />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // 状態管理
+    this.state = {
+      modalShowFlag: false
+    };
+    this.setModalShowFlag = this.setModalShowFlag.bind(this);
+  }
+
+  // 状態変更用コールバック関数
+  setModalShowFlag(newFlag) {
+    this.setState({ modalShowFlag: newFlag });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <button onClick={() => this.setModalShowFlag(true)}>モーダルを表示</button>
+        <MyTestModal showFlag={this.state.modalShowFlag} setShowFlag={this.setModalShowFlag} />
+      </div>
+    );
+  }
 }
 
 export default App;
